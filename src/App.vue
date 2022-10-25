@@ -2,7 +2,7 @@
 import { ref } from "vue";
 import AuthRenderer from "./views/auth/AuthRenderer.vue";
 
-const userAuthenticated = ref(false);
+const userAuthenticated = ref(true);
 </script>
 
 <template>
@@ -11,7 +11,7 @@ const userAuthenticated = ref(false);
       <auth-renderer />
     </div>
 
-    <router-view />
+    <router-view v-else />
   </div>
 </template>
 

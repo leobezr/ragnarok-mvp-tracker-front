@@ -3,7 +3,7 @@ import { ref } from "vue";
 </script>
 
 <template>
-  <router-view authenticated />
+  <router-view class="authenticated" />
 </template>
 
 <style lang="scss"></style>
