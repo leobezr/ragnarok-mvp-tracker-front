@@ -4,7 +4,14 @@ $poppins: "Poppins", serif;
 
 body {
     font-family: $poppins;
-    font-size: 20px;
+    font-size: 14px;
+
+    button {
+        font-family: $poppins;
+        text-transform: uppercase;
+        letter-spacing: .06em;
+        line-height: 2em;
+    }
 }
 
 h1 {
@@ -17,6 +24,13 @@ h2 {
 
 h3 {
     font-size: 1.5em;
+}
+
+p,
+span {
+    font-size: 14px;
+    letter-spacing: .035em;
+    line-height: 1em;
 }
 
 h1,

@@ -5,10 +5,17 @@
         'white': $fontColorBase,
         'success': ('base': $success,
         ),
+        'danger': ('base': $danger,
+        ),
     ),
     $bg-color: ('page': $background,
         '': #83768f,
         'overlay': $backgroundHighlight,
     ));
 
-@use "element-plus/theme-chalk/src/dark/css-vars.scss" as *
+@use "element-plus/theme-chalk/src/dark/css-vars.scss" as *;
+
+.el-button,
+.el-input__inner {
+    height: 38px;
+}
