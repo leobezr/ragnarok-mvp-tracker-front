@@ -22,6 +22,11 @@ const anonymousRoutes: RouteRecordRaw[] = [
     name: "LoginPage",
     component: LoginPage,
   },
+  {
+    path: "/:catchAll(.*)",
+    name: "404",
+    redirect: { name: "LoginPage" },
+  },
 ];
 
 const authenticatedRoutes: RouteRecordRaw[] = [

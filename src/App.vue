@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import AuthRenderer from "./views/auth/AuthRenderer.vue";
+import "./style/style.scss";
 
-const userAuthenticated = ref(true);
+const userAuthenticated = ref(false);
 </script>
 
 <template>
@@ -11,7 +12,7 @@ const userAuthenticated = ref(true);
       <auth-renderer />
     </div>
 
-    <router-view v-else />
+    <router-view anonymous-session v-else />
   </div>
 </template>
 

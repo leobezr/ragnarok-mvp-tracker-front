@@ -1,0 +1,14 @@
+@use "./variables.scss" as *;
+
+@forward 'element-plus/theme-chalk/src/dark/var.scss' with ($colors: ('primary': ('base': $primary, ),
+        'black': $background,
+        'white': $fontColorBase,
+        'success': ('base': $success,
+        ),
+    ),
+    $bg-color: ('page': $background,
+        '': #83768f,
+        'overlay': $backgroundHighlight,
+    ));
+
+@use "element-plus/theme-chalk/src/dark/css-vars.scss" as *
