@@ -1,41 +1,30 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import LoginForm from "./components/LoginForm.vue";
+import CreateLoginForm from "./components/CreateLoginForm.vue";
+import "./scss/_login.scss";
+
+const loginStage = ref<"login" | "creation">("login");
+
+const isLoginStage = computed(() => {
+  return loginStage.value === "login";
+});
+
+const toggleStage = () => {
+  loginStage.value = isLoginStage.value ? "creation" : "login";
+};
 </script>
 
 <template>
   <div id="loginWrap">
     <div class="leftBox">
-      <login-form />
+      <transition name="el-zoom-in-top">
+        <login-form v-show="isLoginStage" @toggle:stage="toggleStage" />
+      </transition>
+
+      <transition name="el-zoom-in-top">
+        <create-login-form v-show="!isLoginStage" @toggle:stage="toggleStage" />
+      </transition>
     </div>
   </div>
 </template>
-
-<style lang="scss">
-@use "@/style/variables.scss" as *;
-
-#loginWrap {
-  height: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  background-image: url("./public/background-login.jpg");
-  background-size: cover;
-  background-position: center right;
-
-  .leftBox {
-    background: $backgroundHighlight;
-    height: 100%;
-    padding: $large-gap;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    form {
-      display: flex;
-      flex-direction: column;
-      grid-gap: $gap;
-    }
-  }
-}
-</style>
