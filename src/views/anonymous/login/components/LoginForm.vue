@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import { Form, Rules } from "@/types/form";
 
 const LoginForm = ref(null);
+
+const validateForm = () => {};
 </script>
 
 <template>
@@ -13,7 +16,10 @@ const LoginForm = ref(null);
     <el-input placeholder="Password" />
 
     <el-button type="primary">Login</el-button>
+
+    <span class="createAccountCTA">
+      <span>Not a member yet?</span>
+      <a href="#" @click="$emit('toggle:stage')">Create account</a>
+    </span>
   </el-form>
 </template>
-
-<style lang="scss"></style>
