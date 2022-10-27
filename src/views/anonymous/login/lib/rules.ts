@@ -13,7 +13,7 @@ export const createUser = reactive({
   confirmPassword: "",
 });
 
-export const rules: Rules = {
+export const rules: Rules = reactive({
   email: [
     {
       required: true,
@@ -37,12 +37,12 @@ export const rules: Rules = {
       message: "Required field",
       trigger: "change",
       validator: (_, value, callback) => {
-        if (value === createUser.email) {
-          callback(new Error("Passwords don't match"));
-        } else {
+        if (value.trim() !== "" && value === createUser.password) {
           callback();
+        } else {
+          callback(new Error("Password doesn't match"));
         }
       },
     },
   ],
-};
+});
