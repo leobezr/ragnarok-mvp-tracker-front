@@ -1,0 +1,96 @@
+@use "@/style/variables.scss" as *;
+
+#sideBarRoot {
+    min-width: 200px;
+    background: $backgroundHighlight;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: center;
+    border-radius: $borderRadius;
+    padding: 0 $mid-gap;
+    animation: MenuPopper 220ms ease-in 1;
+    animation-fill-mode: forwards;
+
+    .logo {
+        margin: 0;
+        width: 70px;
+        margin-bottom: 80px;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    .menuLink {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: stretch;
+        list-style: none;
+        padding: 0;
+        width: 100%;
+        grid-gap: $gap;
+
+        li {
+            padding: $gap;
+            background-color: rgba(0, 0, 0, 0);
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            grid-gap: $gap;
+            transition: all 120ms ease-in;
+            cursor: pointer;
+            border-radius: $borderRadius;
+            color: $fontColorLabel;
+            opacity: 0;
+
+            &:hover {
+                background-color: $backgroundHighlightHover;
+                color: $fontColorBase;
+            }
+
+            &[active=true] {
+                background-color: $backgroundHighlightActive;
+                color: $success;
+
+                &:hover {
+                    filter: brightness(1.3);
+                }
+            }
+
+            @for $i from 0 through 100 {
+                &:nth-child(#{$i}) {
+                    animation: FadeUp 120ms ease-in 1;
+                    animation-fill-mode: forwards;
+                    animation-delay: calc(240ms + #{$i} * 40ms);
+                }
+            }
+        }
+    }
+}
+
+@keyframes MenuPopper {
+    0% {
+        opacity: 0;
+        transform: translate(-30px, 30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0px, 0px);
+    }
+}
+
+@keyframes FadeUp {
+    0% {
+        opacity: 0;
+        transform: translate(0, 15px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0px, 0px);
+    }
+}
