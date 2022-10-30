@@ -4,7 +4,7 @@ import { Form } from "@/types/form";
 import { loginUser, rules } from "../lib/rules";
 import Utils from "@/lib/utils";
 
-const emit = defineEmits(["login", "toggle:stage"]);
+const emit = defineEmits(["login", "shift:stage"]);
 const LoginForm = ref<null | Form>(null);
 
 const loginAttempt = async () => {
@@ -14,6 +14,7 @@ const loginAttempt = async () => {
     await Form.validate((valid) => {
       if (valid) {
         emit("login", loginUser);
+        Form.resetFields();
       }
     });
   }
@@ -43,11 +44,17 @@ const loginAttempt = async () => {
       />
     </el-form-item>
 
+    <span class="forgotPassword">
+      <a href="#" @click="$emit('recover:password')">Forgot Password?</a>
+    </span>
+
     <el-button @click="loginAttempt" type="primary">Login</el-button>
 
     <span class="createAccountCTA">
       <span>Not a member yet?</span>
-      <a href="#" @click="$emit('toggle:stage')">Create account</a>
+      <a href="#" @click="$emit('shift:stage')" class="loginLink"
+        >Create account</a
+      >
     </span>
   </el-form>
 </template>

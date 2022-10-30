@@ -5,7 +5,7 @@ import { Form } from "@/types/form";
 import { raiseSuccess, raiseError } from "@/lib/snackbar";
 import Utils from "@/lib/utils";
 
-const emit = defineEmits(["create", "shift:stage"]);
+const emit = defineEmits(["recover", "shift:stage"]);
 const CreateLoginForm = ref(null);
 
 const createUserAttempt = async () => {
@@ -14,11 +14,11 @@ const createUserAttempt = async () => {
   if (Form) {
     await Form.validate((valid) => {
       if (valid) {
-        emit("create", createUser);
+        emit("recover", createUser.email);
         Form.resetFields();
-        raiseSuccess("Account successfully created!");
+        raiseSuccess("We will send you an email!");
       } else {
-        raiseError("Dumb dumb!");
+        raiseError("That's not a valid email");
       }
     });
   }
@@ -38,35 +38,12 @@ const createUserAttempt = async () => {
       />
     </el-form-item>
 
-    <el-form-item prop="password">
-      <el-input
-        v-model="createUser.password"
-        placeholder="Password"
-        name="password"
-        type="password"
-        autocomplete="off"
-      />
-    </el-form-item>
-
-    <el-form-item prop="confirmPassword">
-      <el-input
-        v-model="createUser.confirmPassword"
-        placeholder="Confirm Password"
-        name="password"
-        type="password"
-        autocomplete="off"
-      />
-    </el-form-item>
-
-    <el-button @click="createUserAttempt" type="primary"
-      >Create Account</el-button
-    >
+    <el-button @click="createUserAttempt" type="primary">
+      Recover password
+    </el-button>
 
     <span class="createAccountCTA">
-      <span>Oops! I already </span>
-      <a href="#" @click="$emit('shift:stage')" class="loginLink"
-        >have an account.</a
-      >
+      <a href="#" @click="$emit('shift:stage')" class="loginLink">Go back</a>
     </span>
   </el-form>
 </template>
