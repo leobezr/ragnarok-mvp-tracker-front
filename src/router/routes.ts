@@ -7,6 +7,9 @@ const adminRoutes: RouteRecordRaw[] = [
     path: "dashboard/",
     name: "Dashboard",
     component: AdminDashboard,
+    meta: {
+      routeRelative: "dashboard",
+    },
   },
 ];
 
