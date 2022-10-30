@@ -5,6 +5,9 @@ import { createApp } from "vue";
 import App from "./App.vue";
 import Router from "@/router";
 import ElementPlus from "element-plus";
+import EventBus from "@/lib/event-buss";
+
+export const eventBus = EventBus;
 
 const app = createApp(App);
 
