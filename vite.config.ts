@@ -23,6 +23,9 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
+      icon: fileURLToPath(
+        new URL("node_modules/vue-material-design-icons", import.meta.url)
+      ),
     },
   },
   css: {
