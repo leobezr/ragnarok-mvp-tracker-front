@@ -12,8 +12,10 @@
   },
   "dependencies": {
     "element-plus": "^2.2.19",
+    "pinia": "^2.0.23",
     "unplugin-element-plus": "^0.4.1",
     "vue": "^3.2.37",
+    "vue-material-design-icons": "^5.1.2",
     "vue-router": "4"
   },
   "devDependencies": {
