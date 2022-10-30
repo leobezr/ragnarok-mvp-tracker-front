@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import { eventBus } from "@/main";
+import { Credential } from "./lib/rules";
 import LoginForm from "./components/LoginForm.vue";
 import CreateLoginForm from "./components/CreateLoginForm.vue";
 import RecoverPasswordForm from "./components/RecoverPasswordForm.vue";
@@ -15,6 +17,14 @@ const sendPasswordRecoveryEmail = (email: string) => {
   console.log({ recoveryEmail: email });
   setStage("login");
 };
+
+const attemptLogin = (credentials: Credential) => {
+  const { email, password } = credentials;
+
+  if (email && password) {
+    eventBus.$emit("authenticate", true);
+  }
+};
 </script>
 
 <template>
@@ -25,6 +35,7 @@ const sendPasswordRecoveryEmail = (email: string) => {
           v-show="stage === 'login'"
           @shift:stage="setStage('creation')"
           @recover:password="setStage('recoverPassword')"
+          @login="attemptLogin"
         />
       </transition>
 
