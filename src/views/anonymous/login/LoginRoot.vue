@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { eventBus } from "@/main";
-import { Credential } from "./lib/rules";
+import { Credential } from "@/types/core";
 import LoginForm from "./components/LoginForm.vue";
 import CreateLoginForm from "./components/CreateLoginForm.vue";
 import RecoverPasswordForm from "./components/RecoverPasswordForm.vue";
