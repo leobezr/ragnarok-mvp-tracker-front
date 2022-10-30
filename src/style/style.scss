@@ -15,3 +15,23 @@ body {
         color: $fontColorBase;
     }
 }
+
+.connectedState {
+    height: calc(100vh - $gap * 2);
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    grid-gap: $gap;
+    padding: $gap;
+
+    .authenticated {
+        padding: $mid-gap;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+    }
+}
+
+.el-popper {
+    max-width: 350px;
+}
