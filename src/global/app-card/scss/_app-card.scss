@@ -1,0 +1,19 @@
+@use "@/style/variables.scss" as *;
+@use "@/style/animation.scss" as *;
+
+.appCardRoot {
+    padding: $mid-gap;
+    background: $backgroundHighlight;
+    border-radius: $borderRadius;
+    opacity: 0;
+    animation: FadeIn 150ms ease-in 1;
+    animation-fill-mode: forwards;
+
+    h3 {
+        margin-bottom: $gap;
+        text-transform: uppercase;
+        font-size: 1.1em;
+        font-weight: 500;
+        letter-spacing: .065em;
+    }
+}
