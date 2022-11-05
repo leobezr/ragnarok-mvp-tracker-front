@@ -1,6 +1,7 @@
 import { RouteRecordRaw } from "vue-router";
 import LoginPage from "@/views/anonymous/login/LoginRoot.vue";
 import AdminDashboard from "@/views/auth/admins/dashboard/DashboardRoot.vue";
+import MvpTracker from "@/views/auth/users/mvp-tracker/MvpTrackerRoot.vue";
 
 const adminRoutes: RouteRecordRaw[] = [
   {
@@ -9,6 +10,14 @@ const adminRoutes: RouteRecordRaw[] = [
     component: AdminDashboard,
     meta: {
       routeRelative: "dashboard",
+    },
+  },
+  {
+    path: "tracker/",
+    name: "MvpTracker",
+    component: MvpTracker,
+    meta: {
+      routeRelative: "mvpTracker",
     },
   },
 ];
