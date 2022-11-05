@@ -1,6 +1,7 @@
 import { Component } from "vue";
 import AccountCircleOutlineIcon from "icon/AccountCircleOutline.vue";
 import HomeVariantOutlineIcon from "icon/HomeVariantOutline.vue";
+import SwordIcon from "icon/Sword.vue";
 
 interface MenuItem {
   name: string;
@@ -18,6 +19,13 @@ export default [
     description:
       "Here you can see a summary of what you have been doing lately",
     icon: HomeVariantOutlineIcon,
+  },
+  {
+    name: "MvpTracker",
+    label: "Mvp Tracker",
+    routeRelative: "mvpTracker",
+    description: "Manage your MVP kills here",
+    icon: SwordIcon,
   },
   {
     name: "Profile",
