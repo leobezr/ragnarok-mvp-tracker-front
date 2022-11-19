@@ -2,6 +2,7 @@
 @use "./variables.scss" as *;
 @use "./plugin.scss" as *;
 @use "./animation.scss" as *;
+@use "./components.scss" as *;
 
 body {
     box-sizing: border-box;
@@ -34,8 +35,4 @@ body {
             margin-bottom: $mid-gap
         }
     }
-}
-
-.el-popper {
-    max-width: 350px;
 }
