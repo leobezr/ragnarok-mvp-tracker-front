@@ -1,0 +1,25 @@
+@use "./variables.scss" as *;
+
+.el-popper {
+    max-width: 350px;
+}
+
+.el-button {
+    border-radius: $borderRadius !important;
+
+    small {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        grid-gap: 3px;
+    }
+
+    &.el-button--small {
+        padding: 7px !important;
+        height: 30px;
+    }
+}
+
+.el-progress-bar__outer {
+    border-radius: 0 !important;
+}
