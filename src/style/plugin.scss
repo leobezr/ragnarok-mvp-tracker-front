@@ -1,11 +1,16 @@
 @use "./variables.scss" as *;
 
-@forward 'element-plus/theme-chalk/src/dark/var.scss' with ($colors: ('primary': ('base': $primary, ),
+@forward 'element-plus/theme-chalk/src/dark/var.scss' with ($colors: ('primary': ('base': $primary,
+            "light-9": rgba(102, 0, 199, .2)),
         'black': $background,
         'white': $fontColorBase,
         'success': ('base': $success,
             "light-8": $success,
             "light-9": rgba(0, 0, 0, .5),
+        ),
+        'info': ('base': $info,
+            "light-8": $info,
+            "light-9": rgba(34, 32, 32, 0.5),
         ),
         'danger': ('base': $danger,
             "error-light-8": $danger,
