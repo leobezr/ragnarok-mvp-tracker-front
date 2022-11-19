@@ -1,21 +1,13 @@
-interface Position {
+import { Dictionary } from ".";
+
+export interface Position {
   x: number | null;
   y: number | null;
 }
 
 export interface Warp {
   location: string;
-  cornerPosition: {
-    nw: Position;
-    n: Position;
-    ne: Position;
-    e: Position;
-    se: Position;
-    s: Position;
-    sw: Position;
-    w: Position;
-    c: Position;
-  };
+  cornerPosition: Dictionary<Position>;
 }
 
 export interface Creature {
