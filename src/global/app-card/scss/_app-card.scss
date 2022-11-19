@@ -2,12 +2,17 @@
 @use "@/style/animation.scss" as *;
 
 .appCardRoot {
-    padding: $mid-gap;
     background: $backgroundHighlight;
     border-radius: $borderRadius;
     opacity: 0;
     animation: FadeIn 150ms ease-in 1;
     animation-fill-mode: forwards;
+    transition: all 150ms ease-in;
+    overflow-y: hidden;
+
+    .mainCardContent {
+        padding: $gap;
+    }
 
     h3 {
         margin-bottom: $gap;
@@ -15,5 +20,9 @@
         font-size: 1.1em;
         font-weight: 500;
         letter-spacing: .065em;
+    }
+
+    &[hover-effect=true]:hover {
+        background: $backgroundHighlightHover;
     }
 }
