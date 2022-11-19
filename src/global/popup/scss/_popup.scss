@@ -1,0 +1,79 @@
+@use "@/style/variables.scss" as *;
+
+#popup {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(0px);
+    animation: BackdropBlur 400ms ease-in 1;
+    animation-fill-mode: forwards;
+
+    .smokeScreen {
+        background: $backgroundHighlightActive;
+        opacity: .4;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+    }
+
+    .popupContentContainer {
+        transform: scale(1);
+        position: relative;
+        z-index: 2;
+        transition: all 120ms ease-in;
+
+        &.appCardRoot {
+            background: $backgroundHighlightHover;
+
+            .mainCardContent {
+                padding: 0;
+            }
+        }
+
+        .popupHeader {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: $gap;
+            background: $backgroundHighlightActive;
+            border-radius: $borderRadius $borderRadius 0 0;
+
+            h4 {
+                margin: 0;
+            }
+        }
+
+        .popupContent {
+            min-width: 300px;
+            margin-top: $gap;
+
+            &>* {
+                padding: $gap;
+            }
+        }
+    }
+}
+
+@keyframes BackdropBlur {
+    0% {
+        backdrop-filter: blur(0);
+    }
+
+    50% {
+        backdrop-filter: blur(10px);
+    }
+
+    100% {
+        backdrop-filter: blur(3px);
+    }
+}
