@@ -19,11 +19,13 @@ export class Asyncio {
     try {
       this.isLoading = true;
 
+      const req = await fn.call(this, args);
+
       if (this.config.alertOnSuccess) {
         raiseSuccess("Success");
       }
 
-      return await fn.call(this, args);
+      return req;
     } catch (err) {
       if (this.config.alertOnFail) {
         raiseError(err as string);
