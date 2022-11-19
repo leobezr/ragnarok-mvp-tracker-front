@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue";
-import Router from "@/router";
+import Router, { navigate } from "@/router";
 import menuLinks from "./lib/menu-links";
 import "./scss/_sidebar.scss";
 
@@ -24,7 +23,11 @@ const activeMenu = (relativeName: string) => {
         effect="light"
         placement="right-start"
       >
-        <li :size="25" :active="activeMenu(link.routeRelative)">
+        <li
+          @click="navigate({ name: link.name })"
+          :size="25"
+          :active="activeMenu(link.routeRelative)"
+        >
           <component :is="link.icon" />
           <span>{{ link.label }}</span>
         </li>
