@@ -1,0 +1,234 @@
+@use "@/style/variables.scss" as *;
+
+#mvpTrackerRoot {
+    .containMvpBoxes {
+        display: flex;
+        flex-direction: row;
+        grid-gap: $mid-gap;
+        align-items: center;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+
+        .cardHeader {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            background: $backgroundHighlightActive;
+            padding: $gap;
+
+            .leftBox {
+                display: flex;
+                flex-direction: row;
+                grid-gap: $gap;
+                align-items: center;
+
+                h3 {
+                    margin: 0;
+                    line-height: 1em;
+                }
+
+                .aliveTag {
+                    line-height: 1em;
+                    padding: 3px $gap;
+                    font-size: .8em;
+                    background: $backgroundHighlightActive;
+                    border-radius: $borderRadius;
+                    color: #fff;
+                    border: solid 1px $fontColorLabel;
+                    position: relative;
+                    overflow: hidden;
+
+                    span {
+                        position: relative;
+                        z-index: 2;
+                        font-size: inherit;
+                    }
+
+                    &:before {
+                        content: "";
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        z-index: 1;
+                        background: transparent;
+                        opacity: .2;
+                    }
+
+                    &[heat-level=green] {
+                        border-color: $success;
+
+                        &:before {
+                            background: $success;
+                        }
+
+                        span {
+                            color: $success;
+                        }
+                    }
+
+                    &[heat-level=yellow] {
+                        border-color: $warning;
+
+                        &:before {
+                            background: $warning;
+                        }
+
+                        span {
+                            color: $warning;
+                        }
+                    }
+                }
+            }
+        }
+
+        .bossHarness {
+            display: flex;
+            flex-direction: row;
+            grid-gap: $mid-gap;
+
+            .bossData {
+                display: flex;
+                flex-direction: row;
+
+                figure {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    max-width: 7vw;
+
+                    img {
+                        max-width: 100%;
+                    }
+                }
+
+                ul.creatureMetaData {
+                    padding: 0;
+                    list-style: none;
+                    display: flex;
+                    flex-direction: column;
+                    grid-gap: $gap;
+
+                    li {
+                        display: flex;
+                        flex-direction: row;
+                        grid-gap: $gap / 2;
+
+                        span {
+                            &.category {
+                                font-weight: 500;
+                            }
+
+                            &.value {
+                                color: $fontColorLabel;
+                            }
+
+                            &[heat="green"] {
+                                color: $success;
+                            }
+
+                            &[heat="yellow"] {
+                                color: $warning;
+                            }
+                        }
+                    }
+                }
+
+                .smallControllers {
+                    margin-bottom: $gap;
+                }
+            }
+
+            &~.el-button {
+                width: 100%;
+
+                span {
+                    display: flex;
+                    grid-gap: 5px;
+                }
+            }
+
+            #numpadHotkey {
+                opacity: .5;
+                animation: Grow 200ms ease-in 1;
+                animation-fill-mode: forwards;
+
+                ul {
+                    padding: 0;
+                    margin: 0;
+                    list-style: none;
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    grid-gap: $gap;
+                    row-gap: $gap;
+
+                    li {
+                        background: $backgroundHighlightActive;
+                        line-height: 1em;
+                        padding: $mid-gap;
+                        border-radius: $borderRadius;
+                        filter: brightness(1);
+                        transition: all 120ms ease-in;
+                        cursor: pointer;
+                        user-select: none;
+
+                        &:hover {
+                            filter: brightness(2);
+                        }
+
+                        &:active {
+                            background: $primary;
+                        }
+
+                        &[clicked=true] {
+                            background: $success;
+                        }
+                    }
+                }
+
+                @keyframes Grow {
+                    0% {
+                        opacity: .5;
+                        transform: scaleY(.5);
+                    }
+
+                    100% {
+                        opacity: 1;
+                        transform: scaleY(1);
+                    }
+                }
+            }
+        }
+
+        .appCardRoot {
+            box-shadow: 0 0 0px 0px $success;
+            transition: all 100ms ease-in;
+            user-select: none;
+            cursor: pointer;
+
+            &[is-active=true] {
+                box-shadow: 0 0 7px -3px $success;
+            }
+        }
+    }
+
+    #trackEditor {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+
+        .el-form {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            grid-gap: 4px;
+
+            .el-form-item__error {
+                transform: translateY(10px);
+            }
+        }
+    }
+}

@@ -30,12 +30,12 @@ export const mvpMock: Creature[] = [
   },
   {
     id: "2",
-    name: "Kiel-D02",
-    creatureId: 1734,
+    name: "Turtle General",
+    creatureId: 1312,
     lastKilled: Date.now() - min * 180,
     lastSeen: { x: 19, y: 98 },
     warp: {
-      location: "kh_dun03",
+      location: "tur_dun04",
       cornerPosition: {
         nw: { x: 19, y: 61 },
         n: { x: 106, y: 63 },
@@ -49,18 +49,18 @@ export const mvpMock: Creature[] = [
       },
     },
     respawnTime: {
-      from: 120,
-      to: 180,
+      from: 60,
+      to: 70,
     },
   },
   {
     id: "3",
-    name: "Kiel-D02",
-    creatureId: 1734,
+    name: "Hardrock Mammoth",
+    creatureId: 1990,
     lastKilled: Date.now() - min * 120,
-    lastSeen: { x: 19, y: 98 },
+    lastSeen: { x: 100, y: 130 },
     warp: {
-      location: "kh_dun04",
+      location: "man_fild03",
       cornerPosition: {
         nw: { x: 19, y: 61 },
         n: { x: 106, y: 63 },
